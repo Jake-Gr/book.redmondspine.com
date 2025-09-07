@@ -10,10 +10,38 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
-  <main>
-    <h1>Welcome to Redmond Spine Center</h1>
-    <p>This will be your booking landing page.</p>
-    <a class="btn" href="https://redmondspine.com">Go to main site</a>
-  </main>
-</body>
+<header class="header">
+  <div class="container nav">
+    <a class="nav__brand" href="/">
+      <img class="nav__logo" src="/logo.svg" alt="Redmond Spine Center"> Redmond Spine Center
+    </a>
+    <nav class="nav__menu">
+      <a class="nav__link" href="/about">About</a>
+      <div class="nav__dropdown">
+        <a class="nav__link nav__dropdown-toggle" href="/patients">Patients ▾</a>
+        <div class="nav__dropdown-menu">
+          <a class="nav__dropdown-item" href="/first-visit">First Visit</a>
+          <a class="nav__dropdown-item" href="/insurance">Insurance</a>
+        </div>
+      </div>
+      <a class="nav__link" href="/services">Services</a>
+      <a class="nav__link" href="/contact">Contact</a>
+      <a class="btn nav__cta" href="/book">Book Now</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="container">
+    <div class="hero__kickers">
+      <span class="badge">Preferred In-Network</span>
+      <span class="badge">No Hidden Fees</span>
+      <span class="badge">Personalized Care</span>
+    </div>
+    <h1>Experience Top Chiropractic Care in Redmond</h1>
+    <p class="lead max-64ch">We target root causes of pain, not symptoms. Know all costs up-front. Same-day appointments available.</p>
+    <div class="hero__actions">
+      <a class="btn" href="/book">Book an appointment</a>
+      <a class="btn btn--outline" href="/contact">Chat with Dr. Cody</a>
+    </div>
+  </div>
+</section>
