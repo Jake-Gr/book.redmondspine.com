@@ -1,102 +1,107 @@
-/* ───────────── STYLE GUIDE (edit here) ───────────── */
+/* ===========================================================
+   REDMOND SPINE CENTER – Landing Page Styles (mobile-first)
+   Works with /bootstrap.min.css?ver=1.7.18.1
+   =========================================================== */
+
+/* -------- Brand tokens -------- */
 :root{
-  /* Brand */
-  --brand:#211551;           /* deep indigo */
-  --brand-ink:#1b1945;
-  --yellow:#ffcc00;          /* CTA yellow (tweak to match brand) */
-  --yellow-ink:#2b2b2b;
-
-  /* Text & Surfaces */
-  --ink:#f7f7fb;             /* light text (on dark hero) */
-  --ink-dark:#0f1220;        /* dark text (on white) */
-  --muted:#b9c0d0;
-  --white:#fff;
-  --line:#e6e9f2;
-
-  /* Backgrounds */
-  --bg:#ffffff;              /* page bg */
-  --hero-img:url('hero.jpg');/* add your dark background photo */
-  --hero-overlay:rgba(0,0,0,.55);
-
-  /* Type scale */
-  --font: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --fs-900:clamp(2.2rem,2.6vw+1rem,3.4rem);
-  --fs-800:clamp(1.4rem,1.4vw+1rem,2.2rem);
-  --fs-700:1.375rem;
-  --fs-600:1.125rem;
-  --fs-500:1.0625rem;
-  --fs-400:1rem;
-
-  /* Spacing & radius */
-  --s1:8px; --s2:12px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px;
-  --r1:10px; --r2:14px; --pill:999px;
-
-  /* Shadow */
-  --shadow:0 12px 30px rgba(0,0,0,.18);
-  --shadow-soft:0 6px 18px rgba(0,0,0,.10);
+  --rsc-text:#0f172a;           /* slate-900 */
+  --rsc-muted:#475569;          /* slate-600 */
+  --rsc-border:#e2e8f0;         /* slate-200 */
+  --rsc-primary:#0EA5E9;        /* brand blue */
+  --rsc-primary-600:#0284C7;    /* hover */
+  --rsc-cta:#FFA800;            /* CTA orange */
+  --rsc-cta-hover:#e39600;
+  --rsc-soft:#f8fafc;           /* soft gray bg */
+  --rsc-radius:16px;
+  --rsc-shadow-sm:0 2px 8px rgba(15,23,42,.06);
+  --rsc-shadow-md:0 12px 28px rgba(15,23,42,.12);
+  --container:1140px;
 }
 
-/* ───────────── Base / reset ───────────── */
-*{box-sizing:border-box} html,body{margin:0;padding:0} html{scroll-behavior:smooth}
-body{font-family:var(--font);font-size:var(--fs-400);line-height:1.6;color:var(--ink-dark);background:var(--bg)}
-img{max-width:100%;display:block;height:auto}
-a{text-decoration:none;color:var(--brand)} a:hover{color:var(--brand-ink)}
-.container{max-width:1140px;margin:0 auto;padding:0 var(--s4)}
-.center{text-align:center}.muted{color:var(--muted)}.tiny{font-size:.9rem}.w-full{width:100%}
-.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px)}
+/* -------- Base -------- */
+html,body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--rsc-text);
+}
+a{color:var(--rsc-primary);text-decoration:none}
+a:hover{color:var(--rsc-primary-600)}
+.container.rsc{max-width:var(--container)!important}
 
-/* ───────────── Nav (white) ───────────── */
-.site-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-.nav-bar{display:flex;align-items:center;height:68px;gap:var(--s4)}
-.brand{font-weight:800;color:var(--ink-dark);letter-spacing:.2px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:var(--pill);font-weight:800;border:1px solid transparent;cursor:pointer;transition:.2s box-shadow,.2s background}
-.btn--sm{padding:9px 14px;font-size:.96rem}
-.btn--brand{background:var(--brand);color:#fff} .btn--brand:hover{background:var(--brand-ink);box-shadow:var(--shadow-soft)}
-.btn--yellow{background:var(--yellow);color:var(--yellow-ink);border-color:#e6b800} .btn--yellow:hover{box-shadow:var(--shadow-soft)}
+/* -------- Navbar (RSC) -------- */
+.navbar{border-bottom:1px solid var(--rsc-border)}
+.navbar-logo{max-height:54px}
+.navbar .btn-cta{
+  background:var(--rsc-cta);color:#fff;border-radius:999px;
+  padding:.55rem 1rem;box-shadow:var(--rsc-shadow-sm);border:0
+}
+.navbar .btn-cta:hover{background:var(--rsc-cta-hover);color:#fff;box-shadow:var(--rsc-shadow-md)}
+.navbar-nav .nav-link{font-weight:600;letter-spacing:.02em}
 
-/* ───────────── Hero (dark image bg) ───────────── */
-.hero{position:relative;padding:var(--s6) 0 var(--s7);color:var(--ink)}
-.hero:before{content:"";position:absolute;inset:0;background:
-  linear-gradient(180deg,var(--hero-overlay),var(--hero-overlay)),
-  var(--hero-img);
-background-size:cover;background-position:center;z-index:-1}
-.hero__intro{margin-bottom:var(--s5)}
-.eyebrow{color:#ffd84d;font-weight:800;letter-spacing:.2em}
-.hero__title{font-size:var(--fs-900);font-weight:900;margin:.35em 0}
-.sub-eyebrow{color:#ffd84d;font-weight:800}
+/* -------- Hero (Energize layout: left copy, right form) -------- */
+header.hero{
+  background:linear-gradient(180deg,var(--rsc-soft) 0%,#fff 100%);
+  padding:48px 0 40px;
+}
+.eyebrow{
+  display:inline-flex;gap:.5rem;align-items:center;
+  padding:.375rem .75rem;border:1px solid var(--rsc-border);
+  border-radius:999px;color:var(--rsc-muted);background:#fff;font-size:.875rem
+}
+.hero h1{
+  font-weight:700;letter-spacing:-.02em;line-height:1.12;
+  font-size:clamp(28px,4.6vw,44px);margin:.75rem 0 .5rem
+}
+.lead{color:var(--rsc-muted);font-size:clamp(16px,2.1vw,18px);max-width:64ch}
+.hero-list{color:var(--rsc-muted);padding-left:1.25rem;margin:12px 0 0}
+.hero-list li{margin:.25rem 0}
+.form-card{
+  background:#fff;border:1px solid var(--rsc-border);border-radius:16px;
+  box-shadow:var(--rsc-shadow-sm);padding:20px
+}
+@media (min-width:576px){ .form-card{padding:24px} }
+.form-card h3{font-size:1.125rem;margin:0 0 .25rem}
+.form-note{font-size:.875rem;color:var(--rsc-muted)}
+.btn-primary{background:var(--rsc-primary);border-color:var(--rsc-primary)}
+.btn-primary:hover{background:var(--rsc-primary-600);border-color:var(--rsc-primary-600)}
+.trust{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.trust img{height:32px;opacity:.85;filter:grayscale(10%)}
 
-/* ───────────── Grid / responsive ───────────── */
-.grid{display:grid;gap:var(--s4)}
-.grid--2{grid-template-columns:1.15fr .85fr}
-@media (max-width:960px){ /* medium breakpoint: STACK EVERYTHING */
-  .grid--2{grid-template-columns:1fr}
-  .site-header .nav-bar{height:auto;padding:var(--s2) 0}
+/* -------- Included / value section -------- */
+section.included{
+  background:#fff;padding:40px 0;border-top:1px solid var(--rsc-border);border-bottom:1px solid var(--rsc-border)
+}
+@media (min-width:992px){ section.included{padding:56px 0} }
+.inc-card{
+  background:#fff;border:1px solid var(--rsc-border);border-radius:14px;
+  padding:20px;box-shadow:var(--rsc-shadow-sm);height:100%
+}
+.inc-card h4{font-size:1.1rem;margin:0 0 .25rem}
+.inc-card p{color:var(--rsc-muted);margin:0}
+
+/* -------- Doctor note & first visit -------- */
+section.note{padding:48px 0}
+.quote{border-left:4px solid #0891B2;background:#f0f9ff;border-radius:8px;padding:16px 18px;margin:0}
+.visit-box{background:#fff;border:1px solid var(--rsc-border);border-radius:14px;padding:20px;box-shadow:var(--rsc-shadow-sm)}
+
+/* -------- Reviews -------- */
+section.reviews{padding:32px 0}
+.review{
+  background:#fff;border:1px solid var(--rsc-border);border-radius:14px;
+  padding:20px;box-shadow:var(--rsc-shadow-sm);height:100%
+}
+.review blockquote{margin:0 0 .5rem}
+
+/* -------- Footer -------- */
+footer{border-top:1px solid var(--rsc-border);padding:24px 0;color:var(--rsc-muted);font-size:14px}
+
+/* -------- Mobile-first order helpers (Title → text → form → rest) -------- */
+/* Default mobile order is the DOM order. On lg+, place form to the right */
+@media (min-width:992px){
+  .hero-copy{order:1}
+  .hero-form{order:2}
 }
 
-/* ───────────── Left Card (form) ───────────── */
-.card{background:#fff;color:var(--ink-dark);border-radius:var(--r2);box-shadow:var(--shadow);border:1px solid #e9eef6}
-.form-card{padding:var(--s4)}
-.form-card__head{margin-bottom:var(--s3)}
-.price-line{font-size:var(--fs-800);line-height:1.1;margin:0 0 var(--s2);text-transform:uppercase}
-.price-line span{font-size:1.4em}
-.callout{display:inline-flex;align-items:center;background:#f5f5f5;color:#222;border-radius:var(--r1);padding:10px 14px;font-weight:800;border:1px solid #eee}
-.callout--yellow{background:var(--yellow);color:var(--yellow-ink);border-color:#e6b800}
-.callout--rounded{border-radius:12px}
-input,select,textarea{width:100%;padding:14px;border:1px solid #e3e8f2;border-radius:12px;background:#f9fbff;font:inherit}
-input::placeholder{color:#9aa3b2}
-input:focus,select:focus,textarea:focus{outline:2px solid rgba(255,204,0,.35);border-color:#e6b800;background:#fff}
-.stack>*+*{margin-top:var(--s2)}
-.check{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:10px;color:#2c2f3a;font-size:.96rem}
-button[type="submit"]{margin-top:var(--s2)}
-.form-card .tiny a{color:#7c8699}
-
-/* ───────────── Right column (image + copy) ───────────── */
-.promo{color:var(--ink)}
-.portrait{margin-top:var(--s3);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.35)}
-.media--shadow{box-shadow:var(--shadow)}
-.caption{margin:.8rem 0 1rem;color:#fff}
-.hl{color:#ffd84d;font-weight:800}
-.promo__copy p{margin:.9rem 0}
-
-/* ───────────── Footer ───────────── */
-.site-footer{border-top:1px solid var(--line);padding:var(--s5) 0;background:#fff;color:#667084}
+/* -------- Small utility nudges -------- */
+.mt-6{margin-top:2.25rem!important}
+.mb-6{margin-bottom:2.25rem!important}
