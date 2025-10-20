@@ -1,114 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>New Patient Special Offer | Redmond Spine Center</title>
-  <link rel="stylesheet" href="style.css" />
-    <!-- Noindex -->
-  <meta name="robots" content="noindex, nofollow, noarchive" />
-  <meta name="googlebot" content="noindex, nofollow, noimageindex" />
-  <meta name="bingbot" content="noindex, nofollow" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>$47 Evaluation + Free Massage | Redmond Spine Center</title>
+  <meta name="description" content="Limited-time $47 chiropractic evaluation with Redmond Spine Center. Consultation, exam, and X-rays as indicated + a complimentary massage."/>
 
+  <!-- ✅ Bootstrap CSS via CDN (works from file:// or http:// ) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts (optional) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Your local stylesheet (same folder as this HTML) -->
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
-  <!-- Top Nav (white) -->
-  <header class="site-header">
-    <div class="container nav-bar">
-      <a class="brand" href="https://www.redmondspine.com/">Redmond Spine Center</a>
-      <a class="btn btn--brand btn--sm" href="https://www.redmondspine.com/about/">Meet Dr. Cody</a>
+  <!-- NAV -->
+  <nav class="navbar navbar-light navbar-expand-md bg-white py-3 border-bottom">
+    <div class="container rsc">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img class="navbar-logo me-2" src="logo-rsc.png" alt="Redmond Spine Center logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#rscNav" aria-controls="rscNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="rscNav">
+        <ul class="navbar-nav mx-md-auto align-items-start align-items-md-center gap-md-3 mb-3 mb-md-0">
+          <li class="nav-item"><a class="nav-link active" href="#">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">PATIENTS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">SERVICES</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">CONDITIONS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
+          <li class="nav-item d-md-none mt-2"><a class="btn btn-cta w-100" href="#">Book Today</a></li>
+        </ul>
+        <div class="d-none d-md-block">
+          <a class="btn btn-cta" href="#">Book Today</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container rsc">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-6 hero-copy">
+          <span class="eyebrow">Limited-time new patient offer</span>
+          <h1>$47 Complete Chiropractic Evaluation · Free 30-min Massage</h1>
+          <p class="lead">Consultation, functional exam, X-rays as indicated, and a personal plan to help you feel better and heal better — delivered by Redmond Spine Center’s integrated team.</p>
+          <ul class="hero-list">
+            <li>Insurance guidance and transparent pricing</li>
+            <li>Same-day or next-day appointments when available</li>
+            <li>Located in downtown Redmond</li>
+          </ul>
+          <div class="trust" aria-label="partner / verification">
+            <img src="badge-google.svg" alt="Google reviews">
+            <img src="badge-hipaa.svg" alt="HIPAA compliant">
+            <img src="badge-care.svg" alt="Patient-first care">
+          </div>
+        </div>
+
+        <aside class="col-12 col-lg-6 hero-form">
+          <div class="form-card">
+            <h3 class="mb-1">Claim your $47 evaluation</h3>
+            <p class="form-note">Tap below to open our secure form in a new tab. Confirm you can receive care in Redmond, WA and share the best way to reach you.</p>
+            <a id="open-form" class="btn btn-primary btn-lg w-100" target="_blank" rel="noopener" href="#">Open secure form</a>
+            <p class="form-note mt-2 mb-0">By proceeding, you consent to being contacted about scheduling and reminders. Message/data rates may apply. Opt out anytime.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2 mt-3">
+            <img src="icon-lock.svg" alt="" width="18" height="18"><span class="form-note">Secure • Your info stays private</span>
+          </div>
+        </aside>
+      </div>
     </div>
   </header>
 
-  <!-- Top-of-fold Hero -->
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero__intro center">
-          <div class="eyebrow">ENERGIZE CHIROPRACTIC</div>
-          <h1 class="hero__title">NEW PATIENT SPECIAL OFFER</h1>
-          <div class="sub-eyebrow">FREE 30 MINUTE MASSAGE INCLUDED! ($90 VALUE!)</div>
+  <!-- INCLUDED -->
+  <section class="included">
+    <div class="container rsc">
+      <div class="row mb-3">
+        <div class="col-12 col-lg-8">
+          <h2 class="h3 mb-1">What’s included with the $47 visit</h2>
+          <p class="lead">Early evaluation helps prevent minor issues from becoming major problems.</p>
         </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-sm-6 col-lg-4"><div class="inc-card"><h4>Consultation & Functional Exam</h4><p>We start with a conversation and targeted tests to understand what’s going on.</p></div></div>
+        <div class="col-12 col-sm-6 col-lg-4"><div class="inc-card"><h4>X-rays as Indicated</h4><p>Only when needed — we’ll explain why and what we’re looking for.</p></div></div>
+        <div class="col-12 col-sm-6 col-lg-4"><div class="inc-card"><h4>Personalized Plan Review</h4><p>Clear findings and a step-by-step plan to help your body truly heal.</p></div></div>
+        <div class="col-12 col-sm-6 col-lg-4"><div class="inc-card"><h4>Insurance & Cost Transparency</h4><p>No surprises. We walk you through benefits and options.</p></div></div>
+        <div class="col-12 col-sm-6 col-lg-4"><div class="inc-card"><h4>Same/Next-Day Scheduling</h4><p>We’ll do our best to get you seen quickly.</p></div></div>
+        <div class="col-12 col-sm-6 col-lg-4"><div class="inc-card"><h4>Complimentary Massage</h4><p>Relaxation and relief to kickstart your recovery.</p></div></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="grid grid--2 hero__grid">
-          <!-- LEFT: Offer + Form -->
-          <aside class="card form-card">
-            <div class="form-card__head">
-              <h2 class="price-line"><span>$47</span> COMPLETE<br/>CHIROPRACTIC EVALUATION</h2>
-              <p class="muted">Consultation, Functional Exam, X-Rays, Nerve Scans &amp; Report of Findings.</p>
-              <div class="callout callout--yellow">You'll Get a Free Massage Too!</div>
-            </div>
-
-            <form class="stack" action="#" method="post" novalidate>
-              <label class="sr-only" for="first">First Name</label>
-              <input id="first" name="first" type="text" placeholder="First Name*" required />
-
-              <label class="sr-only" for="last">Last Name</label>
-              <input id="last" name="last" type="text" placeholder="Last Name*" required />
-
-              <label class="sr-only" for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="Phone*" required />
-
-              <label class="sr-only" for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="Email*" required />
-
-              <label class="check">
-                <input type="checkbox" required />
-                <span>I confirm that I am able to receive services in Kirkland, Washington</span>
-              </label>
-
-              <label class="check">
-                <input type="checkbox" />
-                <span>I consent to receive SMS notifications and alerts. Message and data rates may apply. Text HELP to 425-414-8605 for assistance. You can reply STOP anytime to unsubscribe.</span>
-              </label>
-
-              <button class="btn btn--yellow w-full" type="submit">Submit</button>
-
-              <p class="tiny center">
-                <a href="#" rel="nofollow">Privacy Policy</a> | <a href="#" rel="nofollow">Terms Of Service</a>
-              </p>
-            </form>
-          </aside>
-
-          <!-- RIGHT: Kicker + Image + Copy -->
-          <div class="promo">
-            <div class="callout callout--yellow callout--rounded">
-              KIRKLAND, IT'S TIME YOU GET BACK TO DOING WHAT YOU LOVE.
-            </div>
-
-            <figure class="portrait media media--shadow">
-              <img src="portrait.jpg" alt="Dr. Leah &amp; Dr. Jeremy Meadows" />
-            </figure>
-
-            <p class="caption">
-              Come see Dr. Leah &amp; Dr. Jeremy Meadows for all your <span class="hl">chiropractic needs</span>
-            </p>
-
-            <div class="promo__copy">
-              <p>
-                Energize Chiropractic &amp; Wellness has helped thousands of your neighbors address their neck pain, back pain, headaches &amp; migraines and more. It all starts with one simple click to claim one of 20 limited spots for our <span class="hl">$47 Consultation, Exam, &amp; X-Rays</span>. You’ll get a <span class="hl">FREE 30 Minute Massage</span> too!
-              </p>
-              <p class="muted">
-                Slight aches and pains can develop into more severe issues over time. Symptoms have a tendency of interrupting our lives when they are the most inconvenient.
-              </p>
-              <p>
-                Get ahead on your health! Simply fill out the information on our form to claim one of our limited time consultation offers and our team will follow up with next steps.
-              </p>
-            </div>
+  <!-- DOCTOR NOTE -->
+  <section class="note">
+    <div class="container rsc">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="h3">A note from Dr. Cody</h2>
+          <p class="quote">“We don’t do one-size-fits-all care. We start with a conversation, learn what the pain is keeping you from, then build a plan to help your body truly heal — not just feel better in the moment.”</p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="visit-box h-100">
+            <h4 class="h5">Your first visit checklist</h4>
+            <ul class="text-muted mb-3">
+              <li>Bring ID and insurance card (if using)</li>
+              <li>Wear comfortable clothing</li>
+              <li>Arrive 10 minutes early for intake</li>
+              <li>Questions welcome — we’ll walk you through every step</li>
+            </ul>
+            <a class="btn btn-outline-secondary" href="#top" onclick="document.getElementById('open-form').focus()">Claim the $47 offer</a>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container tiny muted">
-      © <span id="y"></span> Redmond Spine Center
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <div class="container rsc">
+      <h2 class="h3 mb-2">What patients say</h2>
+      <p class="lead">Real stories of care that puts you first.</p>
+      <div class="row g-3">
+        <div class="col-12 col-md-6"><div class="review"><blockquote>“I experienced fewer headaches within weeks. The plan felt personal and practical.”</blockquote><div class="small text-muted">— Patient review</div></div></div>
+        <div class="col-12 col-md-6"><div class="review"><blockquote>“Insurance guidance made everything easy. I finally understand what’s going on with my posture.”</blockquote><div class="small text-muted">— Patient review</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container rsc d-flex flex-wrap gap-3 justify-content-between align-items-center">
+      <div class="d-flex flex-wrap gap-3">
+        <a class="link-secondary" href="#">Privacy Policy</a>
+        <a class="link-secondary" href="#">Terms of Service</a>
+        <a class="link-secondary" href="#">Accessibility</a>
+        <a class="link-secondary" href="#">HIPAA Notice</a>
+      </div>
+      <div>© <span id="y"></span> Redmond Spine Center</div>
     </div>
   </footer>
 
+  <!-- Bootstrap JS (needed for navbar toggle) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
+    const FORM_URL = "https://example.com/secure-form"; // replace
+    document.getElementById('open-form').href = FORM_URL;
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
