@@ -16,52 +16,304 @@
   --rsc-radius:16px;
   --rsc-shadow-sm:0 2px 8px rgba(15,23,42,.06);
   --rsc-shadow-md:0 12px 28px rgba(15,23,42,.12);
-  --container:1140px;
+  --container:960px;
 }
 
 /* -------- Base -------- */
-html,body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--rsc-text);
+html, body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--rsc-text);
 }
+* {
+  font-family: inherit;
+}
+
 a{color:var(--rsc-primary);text-decoration:none}
 a:hover{color:var(--rsc-primary-600)}
 .container.rsc{max-width:var(--container)!important}
 
-/* -------- Navbar (RSC) -------- */
-.navbar{border-bottom:1px solid var(--rsc-border)}
-.navbar-logo{max-height:54px}
-.navbar .btn-cta{
-  background:var(--rsc-cta);color:#fff;border-radius:999px;
-  padding:.55rem 1rem;box-shadow:var(--rsc-shadow-sm);border:0
+/* Centered stacked logo */
+/* .nav-logo-link { display: block; line-height: 0; } */
+.nav-logo {
+  display: block;
+  height: 100px;     /* adjust size as desired */
+  width: auto;
+  max-width: 100%;
 }
-.navbar .btn-cta:hover{background:var(--rsc-cta-hover);color:#fff;box-shadow:var(--rsc-shadow-md)}
-.navbar-nav .nav-link{font-weight:600;letter-spacing:.02em}
+
+.btn-cta {
+  background: #FFA800;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  transition: background .2s ease, box-shadow .2s ease;
+}
+.btn-cta:hover {
+  background: #e39600;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.10);
+}
+.nav-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 2em;
+  color: #000;
+  font-family: inherit;     /* ensures it matches your site's main font */
+  font-weight: 400;         /* optional: keeps text consistent with body copy */
+  letter-spacing: normal;   /* reset any special spacing */
+  line-height: 1.4;         /* good default readability */
+}
+
+
 
 /* -------- Hero (Energize layout: left copy, right form) -------- */
+
+.hero-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 2em;
+  color: #fff;
+}
+
 header.hero{
-  background:linear-gradient(180deg,var(--rsc-soft) 0%,#fff 100%);
+  background: linear-gradient(
+    to right,
+    #62A9E0 0%,
+    #62A9E0 50%,
+    #d6d5d5 100%
+  );
   padding:48px 0 40px;
 }
-.eyebrow{
-  display:inline-flex;gap:.5rem;align-items:center;
-  padding:.375rem .75rem;border:1px solid var(--rsc-border);
-  border-radius:999px;color:var(--rsc-muted);background:#fff;font-size:.875rem
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--rsc-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  backdrop-filter: blur(4px);
 }
-.hero h1{
-  font-weight:700;letter-spacing:-.02em;line-height:1.12;
-  font-size:clamp(28px,4.6vw,44px);margin:.75rem 0 .5rem
+
+/* Make the stars golden and aligned */
+.eyebrow .stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: #FFD700; /* gold */
+  font-size: 1rem;
 }
+
+.eyebrow .star-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+
+/* Base hero text color + font */
+.hero {
+  color: #fff;
+  font-family: inherit; /* inherits from your body/site font */
+}
+
+/* Make all headings inside hero consistent */
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4 {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: #fff;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+/* Responsive font scaling */
+.hero h1 { font-size: clamp(28px, 4.6vw, 44px); }
+.hero h2 { font-size: clamp(22px, 3vw, 32px); }
+.hero h3 { font-size: clamp(18px, 2.5vw, 26px); }
+.hero h4 { font-size: clamp(16px, 2vw, 22px); }
+
+/* Paragraphs, lists, and other text inside hero */
+.hero p,
+.hero li,
+.hero span,
+.hero .eyebrow,
+.hero .form-note {
+  color: #fff;
+  font-family: inherit;
+}
+
+/* Optional: make list items a bit readable on bright backgrounds */
+.hero ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+/* Optional: lighten secondary text slightly */
+.hero .form-note,
+.hero .eyebrow {
+  opacity: 0.9;
+}
+
+.hero h2 .highlighted-text {
+  position: relative;
+  font-style: italic;
+  font-weight: 700;
+  color: #0B4A6F; /* darker, trustworthy blue */
+  display: inline-block;
+}
+
+.hero h2 .highlighted-text {
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+  font-weight: 700;
+  color: #0B4A6F;
+  z-index: 1;
+}
+
+/* Main underline (slightly lower + visible texture) */
+/* ============================================================
+   UNIVERSAL HAND-DRAWN UNDERLINE FOR H1–H3
+   Works inside hero or any section
+   ============================================================ */
+
+   h1 .highlighted-text,
+   h2 .highlighted-text,
+   h3 .highlighted-text {
+     position: relative;
+     display: inline-block;
+     font-style: italic;
+     font-weight: 700;
+     color: #0B4A6F; /* brand dark blue */
+     z-index: 1;
+   }
+   
+   /* main underline stroke */
+   h1 .highlighted-text::after,
+   h2 .highlighted-text::after,
+   h3 .highlighted-text::after {
+     content: "";
+     position: absolute;
+     left: 0;
+     bottom: -0.15em; /* sits nicely below descenders */
+     width: 100%;
+     height: 0.28em;
+     background: linear-gradient(90deg, #0B4A6F 0%, #0EA5E9 100%);
+     border-radius: 30% 60% 50% 70% / 80% 60% 40% 60%;
+     opacity: 0.85;
+     transform: rotate(-1deg);
+     filter: blur(0.4px) brightness(1.05);
+     z-index: -1;
+   }
+   
+   /* secondary softer brush texture */
+   h1 .highlighted-text::before,
+   h2 .highlighted-text::before,
+   h3 .highlighted-text::before {
+     content: "";
+     position: absolute;
+     left: 3%;
+     bottom: -0.2em;
+     width: 94%;
+     height: 0.18em;
+     background: rgba(14,165,233,0.25);
+     border-radius: 999px;
+     transform: rotate(0.5deg);
+     z-index: -1;
+   }
+   
+   /* optional subtle size adjustment by heading weight */
+   h1 .highlighted-text::after { height: 0.32em; }
+   h3 .highlighted-text::after { height: 0.24em; }
+
+   
+.hero-video {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; /* ⬅️ space below video */
+  border: 4px solid #fff; /* ⬅️ clean white border */
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-video:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
+}
+
+/* For browsers without Bootstrap’s ratio helper */
+.hero-video iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: 0;
+  display: block;
+}
+
+
+/* Scheduling widget styling */
+#reviewwave-widget {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+}
+
+/* Ensure the widget scales nicely on mobile */
+@media (max-width: 768px) {
+  #reviewwave-widget iframe,
+  #reviewwave-widget > div {
+    width: 100% !important;
+  }
+}
+
+
+
+
 .lead{color:var(--rsc-muted);font-size:clamp(16px,2.1vw,18px);max-width:64ch}
 .hero-list{color:var(--rsc-muted);padding-left:1.25rem;margin:12px 0 0}
 .hero-list li{margin:.25rem 0}
 .form-card{
   background:#fff;border:1px solid var(--rsc-border);border-radius:16px;
-  box-shadow:var(--rsc-shadow-sm);padding:20px
+  box-shadow:var(--rsc-shadow-sm);padding:20px;
+}
+.form-card,
+.form-card h1,
+.form-card h2,
+.form-card h3,
+.form-card h4,
+.form-card p,
+.form-card span,
+.form-card li,
+.form
+.form-card a {
+  color: #000;
+  font-family: inherit;
 }
 @media (min-width:576px){ .form-card{padding:24px} }
-.form-card h3{font-size:1.125rem;margin:0 0 .25rem}
-.form-note{font-size:.875rem;color:var(--rsc-muted)}
 .btn-primary{background:var(--rsc-primary);border-color:var(--rsc-primary)}
 .btn-primary:hover{background:var(--rsc-primary-600);border-color:var(--rsc-primary-600)}
 .trust{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:12px}
@@ -79,18 +331,171 @@ section.included{
 .inc-card h4{font-size:1.1rem;margin:0 0 .25rem}
 .inc-card p{color:var(--rsc-muted);margin:0}
 
+
+/* ===============================
+   JOURNEY (4-step guided section)
+   =============================== */
+   .journey{
+    position: relative;
+    isolation: isolate;
+    padding: 3rem 0 3.5rem;
+    background:
+      linear-gradient(180deg, rgba(14,165,233,0.07), rgba(98,169,224,0.10)),
+      #ffffff;
+  }
+  
+  .journey::before{
+    /* subtle paper/fiber texture */
+    content:"";
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(135deg, rgba(0,0,0,0.03) 0 1px, transparent 2px 8px),
+      radial-gradient(1200px 500px at 85% -10%, rgba(255,168,0,0.10), transparent 60%),
+      radial-gradient(900px 480px at 15% 110%, rgba(14,165,233,0.10), transparent 60%);
+    mix-blend-mode: overlay;
+    pointer-events:none;
+    z-index:-1;
+  }
+  
+  .journey-head{
+    text-align:center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .journey-kicker{
+    display:inline-flex; align-items:center; gap:.45rem;
+    padding:.35rem .75rem;
+    border:1px solid rgba(14,165,233,.25);
+    background: rgba(14,165,233,.08);
+    color:#0B4A6F;
+    border-radius:12px;
+    font-weight:600; font-size:.9rem; letter-spacing:.02em;
+  }
+  
+  .journey .lead{ color:#475569; }
+  
+  /* Cards */
+  .step-card{
+    background:#fff;
+    border:1px solid var(--rsc-border);
+    border-radius:12px;
+    box-shadow: 0 10px 24px rgba(15,23,42,.08);
+    padding:1.25rem;
+    height:100%;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .step-card:hover{ transform: translateY(-2px); box-shadow:0 14px 30px rgba(15,23,42,.12); }
+  
+  .step-badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:78px; height:30px;
+    padding:0 .6rem;
+    border-radius:8px;
+    background: linear-gradient(90deg,#0B4A6F,#0EA5E9);
+    color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.04em;
+    margin-bottom:.5rem;
+  }
+  
+  .step-title{
+    margin:0 0 .25rem;
+    font-weight:700; color:#0B4A6F;
+  }
+  
+  .step-text{
+    color:#475569; margin-bottom:.75rem;
+  }
+  
+  /* Video wrapper (works with or without Bootstrap's ratio helper) */
+  .step-video{
+    border:4px solid #fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(15,23,42,.15);
+  }
+  .step-video iframe{
+    width:100%;
+    aspect-ratio:16/9;
+    border:0;
+    display:block;
+  }
+  
+  /* Spacing tune-ups */
+  @media (min-width: 992px){
+    .journey{ padding: 4rem 0 4.5rem; }
+  }
+  
+
 /* -------- Doctor note & first visit -------- */
 section.note{padding:48px 0}
 .quote{border-left:4px solid #0891B2;background:#f0f9ff;border-radius:8px;padding:16px 18px;margin:0}
 .visit-box{background:#fff;border:1px solid var(--rsc-border);border-radius:14px;padding:20px;box-shadow:var(--rsc-shadow-sm)}
 
 /* -------- Reviews -------- */
-section.reviews{padding:32px 0}
-.review{
-  background:#fff;border:1px solid var(--rsc-border);border-radius:14px;
-  padding:20px;box-shadow:var(--rsc-shadow-sm);height:100%
+/* --- Reviews section refresh --- */
+.reviews {
+  padding: 40px 0;
 }
-.review blockquote{margin:0 0 .5rem}
+
+/* Section header: star eyebrow style */
+.reviews .reviews-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .85rem;
+  border: 1px solid var(--rsc-border);
+  border-radius: 14px;                  /* less rounded than pills */
+  background: rgba(255,255,255,.15);    /* works on hero/white */
+  backdrop-filter: blur(4px);
+  color: #fff;                          /* override per background if needed */
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin-bottom: .5rem;
+}
+
+.reviews .stars {
+  display: inline-flex; align-items: center; gap: .15rem;
+  color: #FFD700; /* gold */
+  font-size: 1rem;
+}
+.reviews .star-icon { width: 14px; height: 14px; fill: currentColor }
+
+/* Card: stronger visual gravity, less rounded */
+.review {
+  background: #fff;
+  border: 1px solid var(--rsc-border);
+  border-radius: 10px;                  /* less rounded */
+  box-shadow: 0 10px 28px rgba(15,23,42,.12);
+  padding: 20px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Attention stripe on top */
+.review::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, #FFD700 0%, #62A9E0 60%, #0EA5E9 100%);
+}
+
+/* Headline quote + stars row inside card */
+.review-head {
+  display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem;
+}
+.review-head .inline-stars { color: #FFD700; display: inline-flex; gap: .15rem }
+.review blockquote { margin: .25rem 0 .75rem; font-size: 1.05rem }
+
+/* Meta line */
+.review .byline { color: #475569; font-size: .85rem }
+
+/* Subtle hover lift */
+.review:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(15,23,42,.16); transition: .2s ease }
+
+/* If this section sits on white, make eyebrow text dark */
+.reviews.light .reviews-eyebrow { color: var(--rsc-text); background: rgba(14,165,233,.06); border-color: rgba(14,165,233,.25) }
+
 
 /* -------- Footer -------- */
 footer{border-top:1px solid var(--rsc-border);padding:24px 0;color:var(--rsc-muted);font-size:14px}
