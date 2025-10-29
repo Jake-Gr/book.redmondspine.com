@@ -8,36 +8,66 @@
   <meta name="description" content="Securely confirm and complete your payment with Redmond Spine Center."/>
   <link rel="canonical" href="https://book.redmondspine.com/confirm-appointment/">
 
-  <!-- Keep your brand styling -->
+  <!-- Keep brand styling -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css?v=5">
 
   <style>
-    /* Make the payment frame feel native and full-height under the header */
-    .payment-wrap { padding: 24px 0; background: #fff; }
+    /* Branded background */
+    body {
+      background: var(--accent, #00CAFF);  /* uses your CSS var if present */
+    }
+    /* Keep white header floating above blue */
+    .navbar { position: sticky; top: 0; z-index: 50; }
+
+    /* White card for payment to feel native */
+    .payment-wrap { padding: 28px 0 8px; }
     .payment-card {
       border: 1px solid var(--border, #e5e7eb);
       border-radius: 16px;
-      box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+      box-shadow: 0 1px 2px rgba(16,24,40,0.06);
       overflow: hidden;
+      background: #fff;
+    }
+    .payment-head {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border, #e5e7eb);
       background: #fff;
     }
     .payment-frame {
       width: 100%;
-      height: min(1200px, calc(100vh - 180px)); /* responsive height */
-      min-height: 800px; /* ensure plenty of room for checkout */
+      height: min(1200px, calc(100vh - 180px));
+      min-height: 800px;
       border: 0;
       display: block;
+      background: #fff;
     }
     @media (max-width: 768px) {
       .payment-frame { height: 100vh; min-height: 700px; }
     }
+
+    /* What to expect section */
+    .expect-wrap {
+      padding: 28px 0 40px;
+    }
+    .expect-card {
+      background: #fff;
+      border: 1px solid var(--border, #e5e7eb);
+      border-radius: 16px;
+      box-shadow: 0 1px 2px rgba(16,24,40,0.06);
+      padding: 22px;
+    }
+    .ratio { border-radius: 12px; overflow: hidden; }
+    .cta-buttons .btn {
+      border-radius: 999px;
+      padding: 12px 18px;
+    }
   </style>
 </head>
 <body>
-  <!-- ===== Branding Header (kept exactly as requested) ===== -->
+  <!-- ===== Branding Header (unchanged) ===== -->
   <nav class="navbar bg-white py-4 border-bottom text-center">
     <div class="container d-flex justify-content-center align-items-center">
       <a href="/" class="nav-logo-link">
@@ -50,10 +80,14 @@
     </div>
   </nav>
 
-  <!-- ===== Payment Embed ===== -->
+  <!-- ===== Confirmation + Payment Embed ===== -->
   <section class="payment-wrap">
     <div class="container rsc">
       <div class="payment-card">
+        <div class="payment-head">
+          <h1 class="h4 m-0">Appointment Confirmed — Secure Payment</h1>
+          <p class="m-0 mt-1 text-muted" style="font-size:14px">Complete your payment below. This page is secure and powered by FortisPay.</p>
+        </div>
         <iframe
           class="payment-frame"
           src="https://api.fortispay.com/hostedpaymentpage?id=11f0635fc4a206b0aa6428a6&data=U2FsdGVkX18xMWYwNjM1ZtHZ%2Bl8H6vtaunZK0W1ZdVSQemocyVlK95ID4cNrzJjzQ6lw3yEDZfFfvqReOfTdjg%3D%3D"
@@ -62,12 +96,50 @@
           referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
       </div>
-      <p class="mt-3 text-muted" style="font-size:14px">
-        Having trouble? <a href="https://api.fortispay.com/hostedpaymentpage?id=11f0635fc4a206b0aa6428a6&data=U2FsdGVkX18xMWYwNjM1ZtHZ%2Bl8H6vtaunZK0W1ZdVSQemocyVlK95ID4cNrzJjzQ6lw3yEDZfFfvqReOfTdjg%3D%3D" target="_blank" rel="noopener">Open the payment page in a new tab</a>.
-      </p>
     </div>
   </section>
 
+  <!-- ===== What to expect ===== -->
+  <section class="expect-wrap">
+    <div class="container rsc">
+      <div class="row g-4">
+        <div class="col-12 col-lg-7">
+          <div class="expect-card h-100">
+            <h2 class="h4 mb-2">What to expect</h2>
+            <p class="mb-3">
+              For your first visit, plan to arrive a few minutes early. We’ll review your history, perform a focused exam,
+              and outline a short, clear plan so you know what’s next. Wear comfortable clothing—movement tests are common.
+              If anything changes before your appointment, text or call <strong>(425) 968-2262</strong>.
+            </p>
+            <div class="ratio ratio-16x9 mt-3">
+              <!-- Replace VIDEO_ID with your video -->
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="What to expect at Redmond Spine Center"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="expect-card h-100">
+            <h3 class="h5 mb-3">Quick links</h3>
+            <div class="d-flex flex-wrap gap-2 cta-buttons">
+              <a class="btn btn-primary" href="/team/">Meet the team</a>
+              <a class="btn btn-outline-primary" href="/office/">See the office</a>
+              <a class="btn btn-outline-secondary" href="sms:+14259682262">Text us with any questions</a>
+            </div>
+            <p class="text-muted mt-3 mb-0" style="font-size:14px">
+              Prefer email? <a href="mailto:info@redmondspine.com">info@redmondspine.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (Optional) Bootstrap JS if you use components -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
