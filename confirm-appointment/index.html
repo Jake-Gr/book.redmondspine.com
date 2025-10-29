@@ -15,7 +15,12 @@
   <link rel="stylesheet" href="/style.css?v=5">
 
   <style>
-    /* Keep white header floating above (fix invalid CSS) */
+   .payment-card, 
+.payment-card * ,
+.expect-card,
+.expect-card * {
+  color: #000 !important;
+}
     .navbar { position: relative; top: 0; z-index: 50; }
 
     .payment-wrap { padding: 28px 0 8px; }
