@@ -15,12 +15,14 @@
   <link rel="stylesheet" href="/style.css?v=5">
 
   <style>
-   .payment-card, 
-.payment-card * ,
-.expect-card,
-.expect-card * {
-  color: #000 !important;
-}
+    /* Force black text inside white cards (overrides .hero white text) */
+    .payment-card,
+    .payment-card *,
+    .expect-card,
+    .expect-card * {
+      color: #000 !important;
+    }
+
     .navbar { position: relative; top: 0; z-index: 50; }
 
     .payment-wrap { padding: 28px 0 8px; }
@@ -32,11 +34,10 @@
     .expect-wrap { padding: 28px 0 40px; }
     .expect-card { background: #fff; border: 1px solid var(--rsc-border); border-radius: 16px; box-shadow: 0 1px 2px rgba(16,24,40,.06); padding: 22px; }
     .ratio { border-radius: 12px; overflow: hidden; }
-    .cta-buttons .btn { border-radius: 999px; padding: 12px 18px; }
   </style>
 </head>
 <body>
-  <!-- Branding header (unchanged) -->
+  <!-- Branding header -->
   <nav class="navbar bg-white py-4 border-bottom text-center">
     <div class="container d-flex justify-content-center align-items-center">
       <a href="/" class="nav-logo-link">
@@ -49,14 +50,14 @@
     </div>
   </nav>
 
-  <!-- Wrap ALL page content inside header.hero to get the gradient fade -->
+  <!-- Gradient background from your CSS -->
   <header class="hero">
     <!-- Confirmation + Payment -->
     <section class="payment-wrap">
       <div class="container rsc">
         <div class="payment-card">
           <div class="payment-head">
-            <h1 class="h4 m-0">Confirm your appointment with Dr. Cody! </h1>
+            <h1 class="h4 m-0">Confirm your appointment with Dr. Cody!</h1>
             <p class="m-0 mt-1 text-muted" style="font-size:14px">Complete your payment below. This page is secure and powered by FortisPay.</p>
           </div>
           <iframe
@@ -91,28 +92,28 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-5">
-  <div class="col-12 col-lg-5">
-  <div class="expect-card h-100">
-    <h3 class="h5 mb-3">Before you visit</h3>
-    <ol class="mb-3 ps-3">
-      <li class="mb-2">
-        Check your email for your appointment confirmation and any preparation instructions.
-      </li>
-      <li class="mb-2">
-        Complete your online intake paperwork before arriving — it helps your first visit run smoothly.
-      </li>
-      <li class="mb-2">
-        Reach out to our team with any questions or changes to your appointment.
-      </li>
-    </ol>
-    <p class="text-muted mt-3 mb-0" style="font-size:14px">
-      Text us at <strong>(425) 968-2262</strong> or email 
-      <a href="mailto:info@redmondspine.com">info@redmondspine.com</a>
-    </p>
-  </div>
-</div>
 
+          <!-- FIXED: single column wrapper (removed nested duplicate) -->
+          <div class="col-12 col-lg-5">
+            <div class="expect-card h-100">
+              <h3 class="h5 mb-3">Before you visit</h3>
+              <ol class="mb-3 ps-3">
+                <li class="mb-2">
+                  Check your email for your appointment confirmation and any preparation instructions.
+                </li>
+                <li class="mb-2">
+                  Complete your online intake paperwork before arriving — it helps your first visit run smoothly.
+                </li>
+                <li class="mb-2">
+                  Reach out to our team with any questions or changes to your appointment.
+                </li>
+              </ol>
+              <p class="text-muted mt-3 mb-0" style="font-size:14px">
+                Text us at <strong>(425) 968-2262</strong> or email
+                <a href="mailto:info@redmondspine.com">info@redmondspine.com</a>
+              </p>
+            </div>
+          </div>
 
         </div>
       </div>
